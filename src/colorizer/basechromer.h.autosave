@@ -1,0 +1,42 @@
+#ifndef BASECHROMER_H
+#define BASECHROMER_H
+
+
+#include <QList>
+#include <QDebug>
+#include <QDir>
+#include <QCoreApplication>
+#include <QRandomGenerator>
+
+#include "HairColorData.h"
+#include "sheet.h"
+
+
+class baseChromer
+{
+protected:
+    
+    baseChromer();   
+    QStringList loadColors(QString fileName);
+    void saveColors(QString fileName);
+    QPixmap chromarize(Sheet* sheet);   // chromarize is used by derived classes, after they checked the sheet's bodypart against their own toBetColoredWorkList.
+    
+public:
+    void randomizeColor();
+    void alterCurrentColorDark      (const QColor &dark);
+    void alterCurrentColorBase      (const QColor &base);
+    void alterCurrentColorHighlight (const QColor &highlight);
+    void updateLerp(double lerpVar);
+    void setColorIndex(int index);
+    
+    QColor getDark () const;        // (?) better function: getColor (ColorType::Dark) and switch inside function
+    QColor getBase () const;
+    QColor getHighlight () const;
+    
+private:
+    QList<ColorData> vColors;
+    int clrNowIndex;
+    double lerp = 3.0;
+};
+
+#endif // BASECHROMER_H

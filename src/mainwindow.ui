@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>1073</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="windowGrid">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="5" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <spacer name="horizontalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="linkToUpdates_2">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://example.com/&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#ec832d;&quot;&gt;Help Dwarf Vision Grow!&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="openExternalLinks">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <spacer name="horizontalSpacer_11">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="changeMode">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>GAME MODE</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_12">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="MyStringList" name="listWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Colorizer" name="colorizer" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="CategoriesManager" name="categoriesManager" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QPushButton" name="btn_savePortraitData">
+            <property name="text">
+             <string>Save Portrait</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_savePNG">
+            <property name="text">
+             <string>Save as PNG!</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_LoadPortrait">
+            <property name="text">
+             <string>Load Portrait</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Minimum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>19</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QPushButton" name="btn_previous">
+              <property name="text">
+               <string>Previous</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_7">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_addToCollection">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Click&lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt; to add portrait to &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Collection&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string>Add to Collection</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_next">
+              <property name="text">
+               <string>Next</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <widget class="QGraphicsView" name="graphicsView">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>357</width>
+              <height>465</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(62, 62, 62);</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSlider" name="slider_neckHeight">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnGenerate">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>34</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>GENERATE!</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QPushButton" name="btn_showCollection">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Show Collection</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Size</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="portraitCollection_size">
+            <property name="minimum">
+             <number>5</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="value">
+             <number>65</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="galleryButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Generate Gallery!</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Qty  </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="portrait_quantity_indicator">
+            <property name="value">
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="1" column="1">
+            <widget class="QRadioButton" name="radioButtonFemale">
+             <property name="text">
+              <string>Female</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="culture_comboBox"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QRadioButton" name="radioButtonMale">
+             <property name="text">
+              <string>Male</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Culture</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QCheckBox" name="chk_box_hideSubordinates">
+            <property name="text">
+             <string>Hide subcomponents</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="btn_randomizeColor">
+            <property name="text">
+             <string>Randomize Color</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>367</width>
+              <height>13</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="linkToUpdates">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://example.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#3d1dd9;&quot;&gt;NEWS and UPDATES&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="openExternalLinks">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CategoriesManager</class>
+   <extends>QWidget</extends>
+   <header>categoriesmanager.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyStringList</class>
+   <extends>QListWidget</extends>
+   <header>mystringlist.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Colorizer</class>
+   <extends>QWidget</extends>
+   <header>colorizer.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

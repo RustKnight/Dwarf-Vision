@@ -1,0 +1,229 @@
+#include "basechromer.h"
+
+baseChromer::baseChromer()
+{
+    
+}
+
+QStringList baseChromer::loadColors(QString fileName)
+{
+    
+    vColors.clear();
+
+
+    QDir workingDir (QCoreApplication::applicationDirPath());
+    QString path = QCoreApplication::applicationDirPath() + QDir::separator() + fileName;
+    QFile colorsFile (path);
+
+    if (!colorsFile.open(QIODevice::ReadOnly)){
+
+        qWarning() << "Error when opening " + fileName;
+        qWarning() << colorsFile.errorString();
+    }
+
+
+    QTextStream stream (&colorsFile);
+
+    auto lambReadColorLINE = [&]() {
+
+        QString value = stream.readLine().simplified();
+        QStringList splitList = value.split(" ");
+
+        int red     = splitList[1].toInt(nullptr, 10);
+        int green   = splitList[2].toInt(nullptr, 10);
+        int blue    = splitList[3].toInt(nullptr, 10);
+
+        return QColor {red, green, blue};
+    };
+
+
+    QString colorName;
+    ColorData color;
+
+
+    while (!stream.atEnd()){
+
+        // get color name
+        stream.skipWhiteSpace();
+        colorName = stream.readLine();
+        color.name = colorName;
+
+        // get color data
+        stream.skipWhiteSpace();
+
+        color.dark      = lambReadColorLINE();
+
+        color.base      = lambReadColorLINE();
+
+        color.highlight = lambReadColorLINE();
+
+        vColors << color;
+
+        stream.skipWhiteSpace();
+    }
+
+
+
+
+    QStringList list;
+
+    for (const ColorData& colorData : vColors)
+        list << colorData.name;
+
+    return list;
+    
+}
+
+void baseChromer::randomizeColor()
+{
+    
+    int colorIndex = QRandomGenerator::global()->bounded(0, vColors.size());
+    clrNowIndex = colorIndex;
+    
+}
+
+void baseChromer::alterCurrentColorDark(const QColor &dark)
+{
+    vColors[clrNowIndex].dark = dark;
+}
+
+void baseChromer::alterCurrentColorBase(const QColor &base)
+{
+    vColors[clrNowIndex].base = base;
+}
+
+void baseChromer::alterCurrentColorHighlight(const QColor &highlight)
+{
+    vColors[clrNowIndex].highlight = highlight;
+}
+
+void baseChromer::updateLerp(double lerpVar)
+{
+    lerp = lerpVar;
+}
+
+void baseChromer::setColorIndex(int index)
+{
+    clrNowIndex = index;
+}
+
+QPixmap baseChromer::chromarize(Sheet *sheet)
+{
+    // base colMan will use this function and also make use of the new private data member lerpVar
+
+    QPixmap pix = sheet->getPixmapFrame();
+
+    QImage img = pix.toImage();
+
+
+    auto clampLamb = [](double i) {
+
+        if (i > 255)
+            return 255.0;
+
+        if (i < 0)
+            return 0.0;
+
+        return i;
+    };
+
+    auto lerpLamb = [](QColor l, QColor r, double inter) {
+
+        QColor c;
+
+        c.setRed (l.red() + ((inter / 255.0) * (r.red() - (l.red()) ) ) );
+        c.setGreen (l.green() + ((inter / 255.0) * (r.green() - (l.green()) ) ) );
+        c.setBlue (l.blue() + ((inter / 255.0) * (r.blue() - (l.blue()) ) ) );
+
+        return c;
+    };
+
+
+// dark, base
+// color2, highlight,
+
+
+    for (int h = 0; h < img.height(); ++h)
+        for (int w = 0; w < img.width(); ++w) {
+
+            QColor currentPixelCol = img.pixelColor(QPoint (w,h));
+
+            if (currentPixelCol.alpha() > 0) {
+
+                QColor color2 = lerpLamb (vColors[clrNowIndex].dark, vColors[clrNowIndex].base, clampLamb (currentPixelCol.green() * lerp));
+                color2 = lerpLamb (color2, vColors[clrNowIndex].highlight, clampLamb ((currentPixelCol.green() - 128) * lerp));
+                color2.setAlpha(clampLamb (currentPixelCol.alpha()) );  // added clamp to alpha, as sometimes it was over 255
+
+                img.setPixelColor(w,h, color2);
+            }
+        }
+
+
+    return QPixmap::fromImage(img);
+}
+
+QColor baseChromer::getDark() const
+{
+    return vColors[clrNowIndex].dark;
+}
+
+QColor baseChromer::getBase() const
+{
+    return vColors[clrNowIndex].base;
+}
+
+QColor baseChromer::getHighlight() const
+{
+    return vColors[clrNowIndex].highlight;
+}
+
+void baseChromer::saveColors(QString fileName)
+{
+    QDir workingDir (QCoreApplication::applicationDirPath());
+    QString path = QCoreApplication::applicationDirPath() + QDir::separator() + fileName;
+    QFile colorsFile (path);
+
+
+    if (!colorsFile.open(QIODevice::WriteOnly | QIODevice::Truncate)){  // truncate deletes text file contents
+
+        qWarning() << "Error when opening hair_colors.txt";
+        qWarning() << colorsFile.errorString();
+        return;
+    }
+
+    QTextStream stream (&colorsFile);
+
+
+    for (ColorData& hairColor : vColors)
+        stream << hairColor.colorsDebugOutput() << "\n\n";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,138 @@
+
+
+Amethyst
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 121 110 204
+Highlight	 228 207 138
+
+
+Aquamarine
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 104 173 153
+Highlight	 228 207 138
+
+
+Brass
+
+Lerp value 2.85
+
+Dark		 21 13 6
+Base		 157 142 56
+Highlight	 75 68 45
+
+
+Bronze
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 161 98 39
+Highlight	 152 138 92
+
+
+Cobalt
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 0 64 153
+Highlight	 228 207 138
+
+
+Copper
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 148 91 40
+Highlight	 228 207 138
+
+
+Emerald
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 52 130 78
+Highlight	 228 207 138
+
+
+Gold
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 163 136 0
+Highlight	 228 207 138
+
+
+Jade
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 0 141 89
+Highlight	 97 88 58
+
+
+Ochre
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 135 78 22
+Highlight	 228 207 138
+
+
+Raw umber 
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 130 102 68
+Highlight	 228 207 138
+
+
+Rust
+
+Lerp value 2.85
+
+Dark		 24 17 8
+Base		 163 79 30
+Highlight	 228 207 138
+
+
+Silver
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 104 104 104
+Highlight	 228 207 138
+
+
+Slate gray
+
+Lerp value 2.85
+
+Dark		 24 15 7
+Base		 75 86 97
+Highlight	 228 207 138
+
+
+Turqoise
+
+Lerp value 2.85
+
+
+Dark		 24 15 7
+Base		 36 129 118
+Highlight	 228 207 138
+
+

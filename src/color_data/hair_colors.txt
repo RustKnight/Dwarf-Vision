@@ -1,0 +1,342 @@
+Black 
+
+Lerp value: 3.4
+
+Dark		 3 2 12
+Base		 66 66 66
+Highlight	 255 255 255
+
+
+Amber
+
+Lerp value: 3.4
+
+Dark		 45 12 12
+Base		 229 166 18
+Highlight	 228 207 138
+
+
+Auburn
+
+Lerp value: 3.4
+
+Dark		 30 21 11
+Base		 154 67 55
+Highlight	 228 207 138
+
+
+Buff
+
+Lerp value: 3.4
+
+Dark		 24 10 6
+Base		 208 158 87
+Highlight	 228 207 138
+
+
+Burnt sienna
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 136 45 23
+Highlight	 228 207 138
+
+
+Brown
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 102 51 0
+Highlight	 228 207 138
+
+
+Burnt umber
+
+Lerp value: 3.4
+
+Dark		 24 10 10
+Base		 112 54 40
+Highlight	 228 207 138
+
+
+Charcoal
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 54 69 79
+Highlight	 228 207 138
+
+
+Chestnut
+
+Lerp value: 3.4
+
+Dark		 24 13 6
+Base		 168 88 56
+Highlight	 228 207 138
+
+
+Chocolate
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 144 72 0
+Highlight	 228 207 138
+
+
+Cinnamon
+
+Lerp value: 3.4
+
+Dark		 17 10 4
+Base		 210 105 30
+Highlight	 228 207 138
+
+
+Copper
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 184 115 51
+Highlight	 228 207 138
+
+
+Dark brown
+
+Lerp value: 3.4
+
+Dark		 24 4 4
+Base		 101 67 33
+Highlight	 228 207 138
+
+
+Dark chestnut
+
+Lerp value: 3.4
+
+Dark		 24 7 7
+Base		 161 119 99
+Highlight	 228 207 138
+
+
+Dark tan
+
+Lerp value: 3.4
+
+Dark		 27 2 2
+Base		 189 168 106
+Highlight	 228 207 138
+
+
+Ecru
+
+Lerp value: 3.4
+
+Dark		 24 12 10
+Base		 194 168 123
+Highlight	 228 207 138
+
+
+Flax
+
+Lerp value: 3.4
+
+Dark		 16 14 12
+Base		 216 206 155
+Highlight	 228 207 138
+
+
+Gold
+
+Lerp value: 3.4
+
+Dark		 24 0 0
+Base		 225 205 101
+Highlight	 228 207 138
+
+
+Golden yellow
+
+Lerp value: 3.4
+
+Dark		 35 1 1
+Base		 230 198 81
+Highlight	 228 207 138
+
+
+Goldenrod
+
+Lerp value: 3.4
+
+Dark		 17 1 0
+Base		 211 163 50
+Highlight	 228 207 138
+
+
+Light brown
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 181 101 29
+Highlight	 228 207 138
+
+
+Mahogany
+
+Lerp value: 3.4
+
+Dark		 24 0 0
+Base		 181 82 43
+Highlight	 228 207 138
+
+
+Ochre
+
+Lerp value: 3.4
+
+Dark		 27 0 0
+Base		 183 122 48
+Highlight	 228 207 138
+
+
+Pale brown
+
+Lerp value: 3.4
+
+Dark		 18 0 0
+Base		 152 124 96
+Highlight	 228 207 138
+
+
+Pale chestnut
+
+Lerp value: 3.4
+
+Dark		 22 5 5
+Base		 195 149 118
+Highlight	 228 207 138
+
+
+Pumpkin
+
+Lerp value: 3.4
+
+Dark		 24 3 3
+Base		 233 123 54
+Highlight	 228 207 138
+
+
+Raw umber 
+
+Lerp value: 3.4
+
+Dark		 17 7 6
+Base		 130 102 68
+Highlight	 228 207 138
+
+
+Russet
+
+Lerp value: 3.4
+
+Dark		 0 0 0
+Base		 128 70 27
+Highlight	 228 207 138
+
+
+Saffron
+
+Lerp value: 3.4
+
+Dark		 40 20 12
+Base		 244 208 100
+Highlight	 228 207 138
+
+
+Sepia
+
+Lerp value: 3.4
+
+Dark		 15 9 4
+Base		 122 74 25
+Highlight	 228 207 138
+
+
+Tan
+
+Lerp value: 3.4
+
+Dark		 17 4 2
+Base		 210 180 140
+Highlight	 228 207 138
+
+
+Dark taupe 
+
+Lerp value: 3.4
+
+Dark		 7 0 1
+Base		 86 71 59
+Highlight	 228 207 138
+
+
+Taupe gray
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 139 133 137
+Highlight	 228 207 138
+
+
+Medium taupe
+
+Lerp value: 3.4
+
+Dark		 9 5 1
+Base		 103 76 71
+Highlight	 228 207 138
+
+
+Pale taupe
+
+Lerp value: 3.4
+
+Dark		 15 5 7
+Base		 188 152 126
+Highlight	 228 207 138
+
+
+Sandy Taupe
+
+Lerp value: 3.4
+
+Dark		 24 4 4
+Base		 185 148 61
+Highlight	 228 207 138
+
+
+Gray
+
+Lerp value: 3.4
+
+Dark		 24 15 7
+Base		 128 128 128
+Highlight	 228 207 138
+
+
+White
+
+Lerp value: 2.95
+
+Dark		 24 15 7
+Base		 231 231 231
+Highlight	 228 207 138
+
+

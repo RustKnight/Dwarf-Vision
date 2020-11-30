@@ -1,0 +1,56 @@
+
+
+Black
+
+Lerp value 3.4
+
+Dark		 0 0 0
+Base		 57 57 57
+Highlight	 255 255 255
+
+
+Brown 
+
+Lerp value 3.4
+
+Dark		 20 4 4
+Base		 111 76 52
+Highlight	 255 255 255
+
+
+Red
+
+Lerp value 3.4
+
+Dark		 14 2 2
+Base		 103 42 32
+Highlight	 255 255 255
+
+
+Gray
+
+Lerp value 3.4
+
+Dark		 10 14 22
+Base		 89 89 89
+Highlight	 228 207 138
+
+
+Blue
+
+Lerp value 3.4
+
+Dark		 4 0 16
+Base		 60 69 107
+Highlight	 228 207 138
+
+
+Green
+
+Lerp value 3.4
+
+Dark		 0 0 0
+Base		 61 85 68
+Highlight	 228 207 138
+
+

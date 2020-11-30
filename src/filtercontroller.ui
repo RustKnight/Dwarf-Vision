@@ -1,0 +1,3339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FilterController</class>
+ <widget class="QDialog" name="FilterController">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>332</width>
+    <height>445</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Filters window</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QLabel" name="label_filterStatus">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;NO FILTERS ACTIVE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MyStringList" name="list_activeFilters">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="filter_label">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;FILTERS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::RichText</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QStackedWidget" name="filterController">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>230</height>
+        </size>
+       </property>
+       <property name="currentIndex">
+        <number>21</number>
+       </property>
+       <widget class="QWidget" name="base">
+        <layout class="QHBoxLayout" name="horizontalLayout_24">
+         <item>
+          <widget class="QGroupBox" name="groupBox_8">
+           <property name="title">
+            <string>Base</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QCheckBox" name="checkBox_324">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_21">
+              <property name="text">
+               <string>Basic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_62">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="background">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QGroupBox" name="groupBox_10">
+           <property name="title">
+            <string>Base</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <widget class="QCheckBox" name="checkBox_786">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_23">
+              <property name="text">
+               <string>Basic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_158">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>249</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="clothes">
+        <layout class="QHBoxLayout" name="horizontalLayout_25">
+         <item>
+          <widget class="QGroupBox" name="groupBox_72">
+           <property name="title">
+            <string>Clothing</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_70">
+            <item>
+             <widget class="QCheckBox" name="checkBox_325">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_326">
+              <property name="text">
+               <string>Rugged</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_554">
+              <property name="text">
+               <string>Soft</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_63">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_32">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>228</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="head">
+        <layout class="QHBoxLayout" name="horizontalLayout_26">
+         <item>
+          <widget class="QGroupBox" name="groupBox_18">
+           <property name="title">
+            <string>Head</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_21">
+            <item>
+             <widget class="QCheckBox" name="checkBox_327">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_54">
+              <property name="text">
+               <string>Basic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_64">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>347</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="ears">
+        <layout class="QHBoxLayout" name="horizontalLayout_27">
+         <item>
+          <widget class="QGroupBox" name="groupBox_73">
+           <property name="title">
+            <string>Lobes</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_71">
+            <item>
+             <widget class="QCheckBox" name="checkBox_328">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_329">
+              <property name="text">
+               <string>Fused</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_330">
+              <property name="text">
+               <string>Small</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_331">
+              <property name="text">
+               <string>Hanging</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_65">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_74">
+           <property name="title">
+            <string>Height</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_72">
+            <item>
+             <widget class="QCheckBox" name="checkBox_332">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_333">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_334">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_335">
+              <property name="text">
+               <string>Tall</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_66">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_75">
+           <property name="title">
+            <string>Width</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_73">
+            <item>
+             <widget class="QCheckBox" name="checkBox_336">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_337">
+              <property name="text">
+               <string>Narrow</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_338">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_339">
+              <property name="text">
+               <string>Broad</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_67">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_33">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>44</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="cheeks">
+        <layout class="QHBoxLayout" name="horizontalLayout_28">
+         <item>
+          <widget class="QGroupBox" name="groupBox_76">
+           <property name="title">
+            <string>Cheek bones</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_74">
+            <item>
+             <widget class="QCheckBox" name="checkBox_340">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_341">
+              <property name="text">
+               <string>Low</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_342">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_343">
+              <property name="text">
+               <string>High</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_68">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_34">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>214</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="lips">
+        <layout class="QHBoxLayout" name="horizontalLayout_29">
+         <item>
+          <widget class="QGroupBox" name="groupBox_77">
+           <property name="title">
+            <string>Thickness</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_75">
+            <item>
+             <widget class="QCheckBox" name="checkBox_344">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_345">
+              <property name="text">
+               <string>Thin</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_346">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_347">
+              <property name="text">
+               <string>Thick</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_69">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_78">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_76">
+            <item>
+             <widget class="QCheckBox" name="checkBox_348">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_349">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_350">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_351">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_70">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_35">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>250</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="hairBack">
+        <layout class="QHBoxLayout" name="horizontalLayout_30">
+         <item>
+          <widget class="QGroupBox" name="groupBox_79">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_77">
+            <item>
+             <widget class="QCheckBox" name="checkBox_352">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_353">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_354">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_355">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_356">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_11">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_80">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_78">
+            <item>
+             <widget class="QCheckBox" name="checkBox_357">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_358">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_359">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_360">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_361">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_362">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_81">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_79">
+            <item>
+             <widget class="QCheckBox" name="checkBox_363">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_364">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_365">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_17">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_36">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>126</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="hairItems">
+        <layout class="QHBoxLayout" name="horizontalLayout_31">
+         <item>
+          <widget class="QGroupBox" name="groupBox_82">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_80">
+            <item>
+             <widget class="QCheckBox" name="checkBox_366">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_367">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_368">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_369">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_370">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_71">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_83">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_81">
+            <item>
+             <widget class="QCheckBox" name="checkBox_371">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_372">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_373">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_374">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_375">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_376">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_72">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_84">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_82">
+            <item>
+             <widget class="QCheckBox" name="checkBox_377">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_378">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_379">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_73">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_37">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="eyes">
+        <layout class="QHBoxLayout" name="horizontalLayout_32">
+         <item>
+          <widget class="QGroupBox" name="groupBox_11">
+           <property name="title">
+            <string>Shape</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <item>
+             <widget class="QCheckBox" name="checkBox_380">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_381">
+              <property name="text">
+               <string>Slit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_25">
+              <property name="text">
+               <string>Narrow</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_382">
+              <property name="text">
+               <string>Somewhat Narrow</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_383">
+              <property name="text">
+               <string>Slightly Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_384">
+              <property name="text">
+               <string>Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_385">
+              <property name="text">
+               <string>Very Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_386">
+              <property name="text">
+               <string>Extremely Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_387">
+              <property name="text">
+               <string>Incredibly Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_18">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_85">
+           <property name="title">
+            <string>Distance</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_22">
+            <item>
+             <widget class="QCheckBox" name="checkBox_388">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_389">
+              <property name="text">
+               <string>Close</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_390">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_391">
+              <property name="text">
+               <string>Wide</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_75">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="iris">
+        <layout class="QHBoxLayout" name="horizontalLayout_33">
+         <item>
+          <widget class="QGroupBox" name="groupBox_12">
+           <property name="title">
+            <string>Shape</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_13">
+            <item>
+             <widget class="QCheckBox" name="checkBox_392">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_393">
+              <property name="text">
+               <string>Slit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_26">
+              <property name="text">
+               <string>Narrow</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_394">
+              <property name="text">
+               <string>Somewhat Narrow</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_395">
+              <property name="text">
+               <string>Slightly Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_396">
+              <property name="text">
+               <string>Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_397">
+              <property name="text">
+               <string>Very Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_398">
+              <property name="text">
+               <string>Extremely Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_399">
+              <property name="text">
+               <string>Incredibly Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_77">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_86">
+           <property name="title">
+            <string>Distance</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_23">
+            <item>
+             <widget class="QCheckBox" name="checkBox_400">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_401">
+              <property name="text">
+               <string>Close</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_402">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_403">
+              <property name="text">
+               <string>Wide</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_78">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_15">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>82</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pupil">
+        <layout class="QHBoxLayout" name="horizontalLayout_34">
+         <item>
+          <widget class="QGroupBox" name="groupBox_19">
+           <property name="title">
+            <string>Shape</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_14">
+            <item>
+             <widget class="QCheckBox" name="checkBox_404">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_405">
+              <property name="text">
+               <string>Slit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_27">
+              <property name="text">
+               <string>Narrow</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_406">
+              <property name="text">
+               <string>Somewhat Narrow</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_407">
+              <property name="text">
+               <string>Slightly Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_408">
+              <property name="text">
+               <string>Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_409">
+              <property name="text">
+               <string>Very Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_410">
+              <property name="text">
+               <string>Extremely Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_411">
+              <property name="text">
+               <string>Incredibly Round</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_80">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_87">
+           <property name="title">
+            <string>Distance</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_24">
+            <item>
+             <widget class="QCheckBox" name="checkBox_412">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_413">
+              <property name="text">
+               <string>Close</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_414">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_415">
+              <property name="text">
+               <string>Wide</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_81">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_16">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>82</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="noseBack">
+        <layout class="QHBoxLayout" name="horizontalLayout_35">
+         <item>
+          <widget class="QGroupBox" name="groupBox_88">
+           <property name="title">
+            <string>Nose Bridge</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_83">
+            <item>
+             <widget class="QCheckBox" name="checkBox_416">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_417">
+              <property name="text">
+               <string>Convex</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_418">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_419">
+              <property name="text">
+               <string>Concav</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_82">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_89">
+           <property name="title">
+            <string>Nose Pitch</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_84">
+            <item>
+             <widget class="QCheckBox" name="checkBox_420">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_421">
+              <property name="text">
+               <string>Upturned</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_422">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_423">
+              <property name="text">
+               <string>Hooked</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_83">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_38">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>239</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="nose">
+        <layout class="QHBoxLayout" name="horizontalLayout_36">
+         <item>
+          <widget class="QGroupBox" name="groupBox_90">
+           <property name="title">
+            <string>Nose Bridge</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_85">
+            <item>
+             <widget class="QCheckBox" name="checkBox_424">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_425">
+              <property name="text">
+               <string>Convex</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_426">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_427">
+              <property name="text">
+               <string>Concav</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_84">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_91">
+           <property name="title">
+            <string>Nose Pitch</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_86">
+            <item>
+             <widget class="QCheckBox" name="checkBox_428">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_429">
+              <property name="text">
+               <string>Upturned</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_430">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_431">
+              <property name="text">
+               <string>Hooked</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_85">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_39">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>120</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="eyebrowsB">
+        <layout class="QHBoxLayout" name="horizontalLayout_37">
+         <item>
+          <widget class="QGroupBox" name="groupBox_92">
+           <property name="title">
+            <string>Thickness</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_87">
+            <item>
+             <widget class="QCheckBox" name="checkBox_432">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_433">
+              <property name="text">
+               <string>Thin</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_434">
+              <property name="text">
+               <string>Thick</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_435">
+              <property name="text">
+               <string>Bushy</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_86">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_93">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_88">
+            <item>
+             <widget class="QCheckBox" name="checkBox_436">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_437">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_438">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_439">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_87">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_94">
+           <property name="title">
+            <string>Height</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_89">
+            <item>
+             <widget class="QCheckBox" name="checkBox_440">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_441">
+              <property name="text">
+               <string>Low</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_442">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_443">
+              <property name="text">
+               <string>High</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_88">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_40">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>172</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="eyebrows">
+        <layout class="QHBoxLayout" name="horizontalLayout_38">
+         <item>
+          <widget class="QGroupBox" name="groupBox_95">
+           <property name="title">
+            <string>Thickness</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_90">
+            <item>
+             <widget class="QCheckBox" name="checkBox_444">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_445">
+              <property name="text">
+               <string>Thin</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_446">
+              <property name="text">
+               <string>Thick</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_447">
+              <property name="text">
+               <string>Bushy</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_89">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_96">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_91">
+            <item>
+             <widget class="QCheckBox" name="checkBox_448">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_449">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_450">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_451">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_90">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_97">
+           <property name="title">
+            <string>Height</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_92">
+            <item>
+             <widget class="QCheckBox" name="checkBox_452">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_453">
+              <property name="text">
+               <string>Low</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_454">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_455">
+              <property name="text">
+               <string>High</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_91">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_41">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>56</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="hair">
+        <layout class="QHBoxLayout" name="horizontalLayout_39">
+         <item>
+          <widget class="QGroupBox" name="groupBox_98">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_93">
+            <item>
+             <widget class="QCheckBox" name="checkBox_456">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_457">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_458">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_459">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_460">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_92">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_99">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_94">
+            <item>
+             <widget class="QCheckBox" name="checkBox_461">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_462">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_463">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_464">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_465">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_466">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_93">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_100">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_95">
+            <item>
+             <widget class="QCheckBox" name="checkBox_467">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_468">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_469">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_94">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_42">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="beard">
+        <layout class="QHBoxLayout" name="horizontalLayout_40">
+         <item>
+          <widget class="QGroupBox" name="groupBox_101">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_96">
+            <item>
+             <widget class="QCheckBox" name="checkBox_470">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_471">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_472">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_473">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_474">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_95">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_102">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_97">
+            <item>
+             <widget class="QCheckBox" name="checkBox_475">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_476">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_477">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_478">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_479">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_480">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_96">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_103">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_98">
+            <item>
+             <widget class="QCheckBox" name="checkBox_481">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_482">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_483">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_97">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_43">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="beardItems">
+        <layout class="QHBoxLayout" name="horizontalLayout_41">
+         <item>
+          <widget class="QGroupBox" name="groupBox_104">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_99">
+            <item>
+             <widget class="QCheckBox" name="checkBox_484">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_485">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_486">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_487">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_488">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_98">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_105">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_100">
+            <item>
+             <widget class="QCheckBox" name="checkBox_489">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_490">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_491">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_492">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_493">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_494">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_99">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_106">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_101">
+            <item>
+             <widget class="QCheckBox" name="checkBox_495">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_496">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_497">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_100">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_44">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="beardStich">
+        <layout class="QHBoxLayout" name="horizontalLayout_42">
+         <item>
+          <widget class="QGroupBox" name="groupBox_107">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_102">
+            <item>
+             <widget class="QCheckBox" name="checkBox_498">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_499">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_500">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_501">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_502">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_101">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_108">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_103">
+            <item>
+             <widget class="QCheckBox" name="checkBox_503">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_504">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_505">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_506">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_507">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_508">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_102">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_109">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_104">
+            <item>
+             <widget class="QCheckBox" name="checkBox_509">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_510">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_511">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_103">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_45">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="moustache">
+        <layout class="QHBoxLayout" name="horizontalLayout_43">
+         <item>
+          <widget class="QGroupBox" name="groupBox_110">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_105">
+            <item>
+             <widget class="QCheckBox" name="checkBox_512">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_513">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_514">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_515">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_516">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_104">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_111">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_106">
+            <item>
+             <widget class="QCheckBox" name="checkBox_517">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_518">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_519">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_520">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_521">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_522">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_105">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_112">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_107">
+            <item>
+             <widget class="QCheckBox" name="checkBox_523">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_524">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_525">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_106">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_46">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="moustacheB">
+        <layout class="QHBoxLayout" name="horizontalLayout_44">
+         <item>
+          <widget class="QGroupBox" name="groupBox_113">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_108">
+            <item>
+             <widget class="QCheckBox" name="checkBox_526">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_527">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_528">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_529">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_530">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_107">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_114">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_109">
+            <item>
+             <widget class="QCheckBox" name="checkBox_531">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_532">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_533">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_534">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_535">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_536">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_108">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_115">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_110">
+            <item>
+             <widget class="QCheckBox" name="checkBox_537">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_538">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_539">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_109">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_47">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="moustacheI">
+        <layout class="QHBoxLayout" name="horizontalLayout_45">
+         <item>
+          <widget class="QGroupBox" name="groupBox_116">
+           <property name="title">
+            <string>Length</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_111">
+            <item>
+             <widget class="QCheckBox" name="checkBox_540">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_541">
+              <property name="text">
+               <string>Stubble</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_542">
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_543">
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_544">
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_110">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_117">
+           <property name="title">
+            <string>Style</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_112">
+            <item>
+             <widget class="QCheckBox" name="checkBox_545">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_546">
+              <property name="text">
+               <string>Unkept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_547">
+              <property name="text">
+               <string>Neatly Combed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_548">
+              <property name="text">
+               <string>Ponytail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_549">
+              <property name="text">
+               <string>Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_550">
+              <property name="text">
+               <string>Double Braided</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_111">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_118">
+           <property name="title">
+            <string>Type</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_113">
+            <item>
+             <widget class="QCheckBox" name="checkBox_551">
+              <property name="text">
+               <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_552">
+              <property name="text">
+               <string>Curly</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_553">
+              <property name="text">
+               <string>Straight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_112">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_48">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>7</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyStringList</class>
+   <extends>QListWidget</extends>
+   <header>mystringlist.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
