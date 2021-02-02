@@ -41,6 +41,7 @@ private:
     Ui::CategoriesManager *ui;
     Category* selectedCategory;
     QSpacerItem* m_verticalSpacer;
+    bool hideSecondaryLayers = true;
 
 
 public slots:
@@ -54,6 +55,8 @@ public slots:
     void categoryUp();
     void categoryDown();
     void portraitNeedsUpdate();
+    void toggleSecondaryLayersVisibility();
+    bool secondaryLayersAreHidden();
 
 
 signals:

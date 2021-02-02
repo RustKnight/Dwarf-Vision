@@ -3,6 +3,8 @@
 
 #include <sheet.h>
 #include <dfcreature.h>
+#include "rawconvertor.h"
+
 
 class Portrait
 {
@@ -20,6 +22,8 @@ public:
         out << entry.id;
 
         out << entry.name;
+
+        out << entry.isPlaceholder;
 
         return out;
     }
@@ -42,6 +46,8 @@ public:
 
         in >> entry.name;
 
+        in >> entry.isPlaceholder;
+
         return in;
     }
 
@@ -61,7 +67,7 @@ public:
     void absorpGuiSettings(QList<Sheet*> sourceList);
     void setIgnoreGuiAbsorption(bool truth);
 
-    void absorbDfCreature(const DfCreature& creature);
+    void absorbDfCreature(const DfCreature& creature, int mode);
 
     int getID() const;
     QString getName() const;
@@ -70,6 +76,7 @@ public:
 
     void setID(int id);
 
+    void convertToFemalePlaceholder(QPixmap QSplash);
 
 
 
@@ -86,6 +93,8 @@ private:
     QString world;
     bool selected = false;
     bool IdAgnostic = false;
+    bool isPlaceholder = false;
+
 
 };
 

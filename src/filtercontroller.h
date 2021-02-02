@@ -28,6 +28,7 @@ public slots:
     void syncFilterListWidget();
     void emitClickedStackedPage();
     void emitClickedAllBtn();
+    QString removeFilter(QString workString, QString removeThis);
 
     void outputFiltersToText();
 

@@ -24,12 +24,12 @@ Colorizer::Colorizer(QWidget *parent) :
     for (QRadioButton* radio : radioBtnList)
     connect(radio, &QRadioButton::clicked, this, &Colorizer::onChromerRadioChange);
 
-    connect(ui->lerpValueMod, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &Colorizer::updateLerpVal);
-    connect(ui->btn_dark, &QPushButton::clicked, this, &Colorizer::openColorDialog);
-    connect(ui->btn_base, &QPushButton::clicked, this, &Colorizer::openColorDialog);
-    connect(ui->btn_highlight, &QPushButton::clicked, this, &Colorizer::openColorDialog);
+    connect(ui->lerpValueMod,   QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &Colorizer::updateLerpVal);
+    connect(ui->btn_dark,       &QPushButton::clicked, this, &Colorizer::openColorDialog);
+    connect(ui->btn_base,       &QPushButton::clicked, this, &Colorizer::openColorDialog);
+    connect(ui->btn_highlight,  &QPushButton::clicked, this, &Colorizer::openColorDialog);
     connect(ui->comboBox_Colors, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &Colorizer::changeSelectedColorIndex);
-    connect(ui->btn_newColor, &QPushButton::clicked, this, &Colorizer::addNewColor);
+    connect(ui->btn_newColor,   &QPushButton::clicked, this, &Colorizer::addNewColor);
     connect(ui->btn_deleteColor, &QPushButton::clicked, this, &Colorizer::deleteColor);
     connect(ui->btn_resetColors, &QPushButton::clicked, this, &Colorizer::resetColors);
     connect(ui->chkBox_lockColor, &QPushButton::clicked, this, &Colorizer::onColorLockedClick);
@@ -422,6 +422,53 @@ void Colorizer::changeIrisColorTo(QString color)
         messageBox.setFixedSize(500,200);
     }
 }
+
+void Colorizer::changeIrisColor(QList<Sheet *> sheetList, QString newColor)
+{
+    // prepare newColor in IrisChromer
+    swapCurrentChromer  (IRIS_CHROMER);
+    changeIrisColorTo   (newColor);
+
+    // use newly selected color in IrisChromer to change color
+    for (Sheet* sheet : sheetList)
+            overwriteColor(sheet);
+
+}
+
+void Colorizer::changeHairColor(QList<Sheet *> sheetList, QString newColor)
+{
+
+    // prepare newColor in IrisChromer
+    swapCurrentChromer  (HAIR_CHROMER);
+    changeHairColorTo   (newColor);
+
+    // use newly selected color in IrisChromer to change color
+    for (Sheet* sheet : sheetList)
+            overwriteColor(sheet);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

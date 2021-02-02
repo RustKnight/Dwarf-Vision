@@ -75,8 +75,10 @@ void DfMessageReader::readMessage(QFile& message)
     if (!message.open(QIODevice::ReadOnly)){
 
         QMessageBox messageBox;
-        messageBox.warning(0,"Error","Could not open message.txt");
+        messageBox.warning(0,"Error","Could not open message.txt\nBe sure to read usage instructions on Bay 12 (News and Updates link, corner right of app)\nClosing...");
         messageBox.setFixedSize(500,200);
+
+        exit(0);
     }
 
     QTextStream stream (&message);
@@ -84,7 +86,7 @@ void DfMessageReader::readMessage(QFile& message)
 
 
     QString allDwarfsString = stream.readAll();
-    QStringList dwarfSplitList = allDwarfsString.split("\n");
+    QStringList dwarfSplitList = allDwarfsString.split("\r\n");
 
     // first split is world name, remove and read
     QString world = dwarfSplitList.takeFirst().simplified();
@@ -97,11 +99,25 @@ void DfMessageReader::readMessage(QFile& message)
 
 
         QStringList dwarfSplit = dwarfInfo.split("=");
+        QList<int> bpValues;
 
         bool selected = dwarfSplit[IS_SELECTED].toInt();
         int id = dwarfSplit[ID].toInt();
         QString name = dwarfSplit[NAME];
         QString description = dwarfSplit[DESCRIPTION];
+        QString curly;
+        int curlyRaw = dwarfSplit[CURLINESS].toInt();
+        bool isMale = dwarfSplit[GEND].toInt(nullptr, 10);
+
+        QStringList bpStringList   = dwarfSplit[BODYPARTS_VALUES].split(",");
+        QStringList hairStylesList = dwarfSplit[HAIRSTYLE].split(";");
+        QStringList colorsList     = dwarfSplit[COLORS].split(";");
+
+        for (const QString& str : bpStringList)
+            bpValues << str.toInt(nullptr, 10);
+
+        //auto tempResult = parseApperance(description);
+
 
 
         DfCreature creature;
@@ -110,6 +126,113 @@ void DfMessageReader::readMessage(QFile& message)
         creature.setID(id);
         creature.setName(name);
         creature.setWorldName(world);
+        creature.setBp(bpValues);
+        creature.setGender(isMale);
+
+        //        ; 0 - 76 -> straight
+        //        ; 77 - 123 -> NONE
+        //        ; 124 - 189 Wavy
+        //        ; 190 > curly
+
+
+        if (curlyRaw <= 76)
+            curly = "straight";
+
+        else if (curlyRaw >= 77 && curlyRaw <= 123)
+            curly = (QRandomGenerator64::global()->bounded(2)) ? "curly" : "straight";
+
+        else if (curlyRaw >= 124 && curlyRaw <= 189)
+            curly = "curly";
+
+         else if (curlyRaw >= 190)
+            curly = "curly";
+
+
+        // set hairstyles
+        for (QString s : hairStylesList){
+
+            if (s.isEmpty())
+                continue;
+
+            QStringList split = s.split(":");
+            int lengthVal = split[1].toInt();
+
+            QString lenghtStr;
+
+            if (split[2] == "clean-shaven"){
+
+                creature.setHair("clean-shaven");
+                continue;
+            }
+
+
+            // [0] = hairType, [1] = hair length, [2] = hairStyle
+            // length_style_curly/straight
+
+            // TESTED ONLY FOR HAIR, UNSURE FOR MOUSTACHE/BEARD - and even for hair for that matter ... (conflict between gui/gm-unit value read and actual dwarfinfo values)
+
+            // 0   - 4 clean shaven         1
+            // 5   - 9 stubble              2
+            // 10  - 29 very short          3
+            // 30  - 74 short               3
+            // 75  - 124 medium-length      4
+            // 125 - 149 long               4
+            // 150 > very long              5
+
+            if (lengthVal <= 4)
+                lenghtStr = "clean-shaven";
+
+            else if (lengthVal >= 5 && lengthVal <= 9)
+                lenghtStr = "stubble";
+
+            else if (lengthVal >= 10 && lengthVal <= 29)
+                lenghtStr = "stubble";
+
+            else if (lengthVal >= 30 && lengthVal <= 74)
+                lenghtStr = "short";
+
+            else if (lengthVal >= 75 && lengthVal <= 124)
+                lenghtStr = "medium";
+
+            else if (lengthVal >= 125 && lengthVal <= 149)
+                lenghtStr = "long";
+
+            else if (lengthVal >= 150)
+                lenghtStr = "long";
+
+
+
+            // add lenghtStr first, then Style (curly later in rawconvertor)
+            if (split[0] == "HAIR"){
+
+                creature.setHair(lenghtStr + "_" + split[2] + "_" + curly);
+                creature.checkHairConsistency();
+            }
+
+            if (split[0] == "BEARD"){
+
+                creature.setBeard(lenghtStr + "_" + split[2] + "_" + curly);
+                creature.checkBeardConsistency();
+            }
+
+            if (split[0] == "MOUSTACHE"){
+
+                // no asset for double braided moustache
+                if (split[2] == "doublebraided")
+                    split[2] = "braided";
+
+                creature.setMoustache(lenghtStr + "_" + split[2] + "_" + curly);
+                creature.checkMoustacheConsistency();
+            }
+
+            if (split[0] == "SIDEBURNS")
+                creature.setSideburns(lenghtStr + "_" + split[2] + "_" + curly);
+        }
+
+        // [0] = hair, [4] = iris, [3] = skin
+        creature.setHairColor(colorsList[0].replace("_", " "));
+        creature.setIrisColor(colorsList[4].split("_")[2].replace("_", " ")); // split IRIS_EYE_COBALT on "_", access list index 2 for actual color
+
 
         //QElapsedTimer timer;
         //timer.start();
@@ -137,27 +260,36 @@ QList<DfCreature> DfMessageReader::getCreatures() const
     return creatureList;
 }
 
-QList<QList<QStringList> > DfMessageReader::parseApperance(QString text)
+QStringList DfMessageReader::parseApperance(QString text)
 {
 
-    QList<QList<QStringList>> foundFilters;
+    QStringList descList = text.split(".");
+    for (QString s : descList)
+        qDebug() << s << "\n";
+
+
+    QStringList foundFilters;
 
     for (int i = 0; i < INVALID_ASSET; ++i){
 
-        foundFilters << QList<QStringList>();
+        foundFilters << QString();
     }
 
 
-    QStringList bodyparts = {"moustache", "beard", "hair", "eyebrows", "nose", "eyes", "lips", "ears", "cheeks"};
+    QStringList subjectList = {"moustache", "beard", "hair", "eyebrows", "nose", "eyes", "lips", "ears", "cheeks"};
     // check if cheeks appear
 
-    QStringList hairKeywords      = {"Stubble", "Short", "Medium", "Long", "Unkept", "Neatly Combed", "Ponytail", "Braided", "Double Braided", "Curly", "Straight"};
-    QStringList beardKeywords     = {"Stubble", "Short", "Medium", "Long", "Unkept", "Neatly Combed", "Ponytail", "Braided", "Double Braided", "Curly", "Straight"};
-    QStringList moustacheKeywords = {"Stubble", "Short", "Medium", "Long", "Unkept", "Neatly Combed", "Ponytail", "Braided", "Double Braided", "Curly", "Straight"};
+    QStringList hairKeywords      = {"Stubble", "Short", "Medium", "Long", "Unkept", "Neatly Combed", "Ponytail", "Braided", "Double Braids", "Curly", "Straight"};
+    QStringList eyesKeywords      = {"Stubble", "Short", "Medium", "Long", "Unkept", "Neatly Combed", "Ponytail", "Braided", "Double Braids", "Curly", "Straight"};
+
+
 
     QHash<QString, QStringList> hash;
     hash.insert("hair", hairKeywords);
-    hash.insert("nose", hairKeywords);
+    hash.insert("beard", hairKeywords);
+    hash.insert("moustache", hairKeywords);
+    hash.insert("eyes", eyesKeywords);
+    //hash.insert("nose", hairKeywords);
 
     // caution when checkin color for hair. It can have a color + a touch of <gray?>
     // color can only be found for hair - no need to check color for rest of hair.
@@ -167,15 +299,16 @@ QList<QList<QStringList> > DfMessageReader::parseApperance(QString text)
     for (const QString& sentence : sentences){
 
         // check sentence for relevant bodypart
-        for (const QString& bp : bodyparts){
-            if (sentence.contains(bp, Qt::CaseInsensitive)){
+        for (const QString& subject : subjectList){
+            if (sentence.contains(subject, Qt::CaseInsensitive)){
 
-                // if word matches adjective keyword
-                for (const QString& keyword : hash.value(bp)){
+                // search sentence for one of our keywords
+                for (const QString& keyword : hash.value(subject)){
                     if (sentence.contains(keyword, Qt::CaseInsensitive)){
 
-                        int bpIndex = bodyPartStringList.indexOf(bp);
-                        foundFilters[bpIndex] << QStringList {QString{keyword}.replace(" ", "")};
+                        // trying to figure out subject -> enum
+                        int bpIndex = bodyPartStringList.indexOf(subject);
+                        foundFilters[bpIndex] += QString{keyword}.replace(" ", "") + " ";
                     }
                 }
 

@@ -1,4 +1,4 @@
-Black 
+Black
 
 Lerp value: 3.4
 
@@ -232,7 +232,7 @@ Base		 233 123 54
 Highlight	 228 207 138
 
 
-Raw umber 
+Raw umber
 
 Lerp value: 3.4
 
@@ -277,7 +277,7 @@ Base		 210 180 140
 Highlight	 228 207 138
 
 
-Dark taupe 
+Dark taupe
 
 Lerp value: 3.4
 

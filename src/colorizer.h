@@ -118,6 +118,9 @@ public slots:
     void changeHairColorTo(QString color);
     void changeIrisColorTo(QString color);
 
+    void changeIrisColor (QList<Sheet*> sheetList, QString newColor);
+    void changeHairColor (QList<Sheet*> sheetList, QString newColor);
+
 signals:
     void selectedColorChanged();
 

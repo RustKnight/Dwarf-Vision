@@ -18,6 +18,7 @@
 #include <QFileSystemWatcher>
 #include <QScreen>
 #include <QToolTip>
+#include <QDesktopServices>
 
 
 #include "assetdb.h"
@@ -30,6 +31,7 @@
 #include "myfilewatcher.h"
 
 
+enum FabulationState {FULL, PARTIAL, NONE};
 
 
 QT_BEGIN_NAMESPACE
@@ -63,6 +65,7 @@ public slots:
     void syncSheets(QList<Sheet*> pSheetsList);
     void onFilterListClick(QListWidgetItem *item);
     void savePNG();
+    void savePNG_commandLine(QString nameArg);
     void createFolders();
     void onCodeSideNeckHeightChange(int height);
     void savePortraits();
@@ -73,6 +76,10 @@ public slots:
     void drawCollection();
     void changeGameMaxPortraitSize();
     void onGameChangeClick();
+    void onPurgePortraitsClick();
+    void onFabulationInfo();
+    void onFabulationSliderChange(int newState);
+    void toggleSecondaryLayersVisibility();
 
     Sheet *findSheetInList(QList<Sheet*> list, BodyPart bp);
     QList<Sheet*> findMultipleSheetsInList(QList<Sheet*> list, QList<BodyPart> bpList);
@@ -88,7 +95,7 @@ public slots:
 signals:
     void filtersChanged (QStringList filters);
 
-private:
+public:
     Ui::MainWindow *ui;
     AssetDB assetDB;
     PortraitManager portraitManager;
@@ -103,7 +110,10 @@ private:
     QHash<int, Portrait*> portraitDB;
     QString currentWorld = "-1";
 
-    int maxPortraitSize = 170;
+    int maxPortraitSize = 195;//170;
+
+    FabulationState fabulation = FULL;
+
 
 };
 #endif // MAINWINDOW_H

@@ -136,3 +136,11 @@ Base		 36 129 118
 Highlight	 228 207 138
 
 
+Heliotrope
+
+Lerp value 2.85
+
+
+Dark		 24 15 7
+Base		 223 115 255
+Highlight	 228 207 138

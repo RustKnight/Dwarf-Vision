@@ -242,6 +242,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(generateAction, &QAction::triggered, this, &MainWindow::onGenerateClick);
     this->addAction(generateAction);
 
+    QAction *secondaryLayersVis = new QAction(this);
+    secondaryLayersVis->setShortcut(Qt::Key_Tab);
+    connect(secondaryLayersVis, &QAction::triggered, this, &MainWindow::toggleSecondaryLayersVisibility);
+    this->addAction(secondaryLayersVis);
+
     //QAction *triggerMessage = new QAction(this);
     //triggerMessage->setShortcut(Qt::Key_Q);
     //connect(triggerMessage, &QAction::triggered, this, &MainWindow::onDwarfFortressSignal_DEBUG);
@@ -339,6 +344,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->changeMode,         &QPushButton::clicked,
             this,                   &MainWindow::onGameChangeClick);
+
+    connect(ui->btn_purgePortraits, &QPushButton::clicked,
+            this,                   &MainWindow::onPurgePortraitsClick);
+
+    connect(ui->btn_info_fabulation, &QPushButton::clicked,
+            this,                    &MainWindow::onFabulationInfo);
+
+    connect(ui->fabulationSlider,    &QSlider::valueChanged,
+            this,                    &MainWindow::onFabulationSliderChange);
 
 
     assetDB.loadResources();
@@ -567,12 +581,14 @@ void MainWindow::syncSheets(QList<Sheet *> pSheetsList)
     clothes->isMasterOf(clothesAcc);
 
 
-
     // we need to check AFTER we've synced sheets, if we also need to hide their subordonates to match Masters
-    if (ui->chk_box_hideSubordinates->isChecked())
+    if (ui->categoriesManager->secondaryLayersAreHidden())
         for (Sheet* sh : pSheetsList)
             sh->refreshMirrorHiddenState();
 
+
+    // old switch
+    //if (ui->chk_box_hideSubordinates->isChecked())
 }
 
 
@@ -610,6 +626,20 @@ void MainWindow::savePNG()
     bool success = pixmap.save(fileName, nullptr, -1);
 
     success = false;
+
+    savePNG_commandLine("debug_test_test");
+}
+
+void MainWindow::savePNG_commandLine(QString nameArg)
+{
+     QPixmap pixmap = portraitManager.getPixmapCurrentPortrait();
+
+
+     bool success = pixmap.save(QCoreApplication::applicationDirPath() + QDir::separator() + "served_pngs" + QDir::separator() + nameArg + ".png", nullptr, -1);
+
+     success = false;
+
+
 }
 
 void MainWindow::createFolders()
@@ -670,7 +700,7 @@ void MainWindow::savePortraits()
 
     for (Portrait* portrait : portraitDB){
 
-        QString fileName = path + QString::number(portrait->getID()) + ".bin";
+        QString fileName = path + portrait->getName() + "_" + QString::number(portrait->getID()) + ".bin";
         QFile newPortraitFile(fileName);
         bool success = newPortraitFile.open(QIODevice::WriteOnly);
         QDataStream stream(&newPortraitFile);
@@ -695,11 +725,12 @@ void MainWindow::loadPortraits(QString world)
     for (QFileInfo fileInfo : worldDir.entryInfoList()){
 
 
-        QString debugSTRING = fileInfo.filePath();
+    QString debugSTRING = fileInfo.filePath();
 
         QFile portraitData (fileInfo.filePath());
 
-        bool success = portraitData.open(QIODevice::ReadOnly);
+    bool debugSuccess = portraitData.open(QIODevice::ReadOnly);
+
         QDataStream stream(&portraitData);
 
         Portrait* portrait = new Portrait();
@@ -806,42 +837,44 @@ void MainWindow::onDwarfFortressSignal(bool forceExecute)
 
             existingPortrait->setSelected(creature.isSelected());
 
+            if (!creature.isMale()){
+
+                QPixmap femalePlaceholder (":/resources/dwarf/dwarf_female_base_basic.png");
+                existingPortrait->convertToFemalePlaceholder(femalePlaceholder);
+            }
+
+
             collection.addPortrait(existingPortrait, portraitManager.portraitToPixmap(existingPortrait, perCentSizePortrait));
         }
 
-        // create new portrait and store in db
+        // create NEW PORTRAIT and store in db
         else {
 
-            // get sheetList    -> NOTE: must simulate dwarf or creature.selectedFilters must not be empty!
-            //QList<Sheet> list = creature.getSheets(&assetDB);
-
-            // move on heap
-            //QList<Sheet*> pList;
-            //for (const Sheet& sh : list)
-            //    pList << new Sheet(sh);
+            QPixmap femalePlaceholder (":/resources/dwarf/dwarf_female_base_basic.png");
 
 
-            //// insert color in sheets
-            //ui->colorizer->randomizeUsedColor();
-            //for (Sheet* sheet : pList)
-            //    ui->colorizer->overwriteAllColors(sheet);
-
-
-            //// sync sheets
-            //syncSheets(pList);
 
             // create portrait
             Portrait* portrait = portraitManager.createPortrait(); // new Portrait (pList);
 
+            if (fabulation != FULL) // read color from DF if PARTIAL or NONE fabulation
+                portraitManager.changePortraitColor(portrait, creature.getHairColor(), creature.getIrisColor());
 
             portrait->setIgnoreGuiAbsorption(true); // if false, will create displaying problems
             portrait->refreshFrames();
 
-            portrait->absorbDfCreature(creature);
+            portrait->absorbDfCreature(creature, fabulation);
 
 
-            portraitDB.insert(portrait->getID(), portrait);
+
+            // GENDER HACK SWITCH
+            if (!creature.isMale())
+                portrait->convertToFemalePlaceholder(femalePlaceholder);
+
+
             collection.addPortrait(portrait, portraitManager.portraitToPixmap(portrait, perCentSizePortrait));
+            portraitDB.insert(portrait->getID(), portrait);
+
         }
 
     }
@@ -851,6 +884,8 @@ void MainWindow::onDwarfFortressSignal(bool forceExecute)
     collection.showCollection(false);
     collection.moveBottomLeft();
 
+
+    // this fires too often, maybe a timer?
     savePortraits();
 }
 
@@ -942,7 +977,7 @@ void MainWindow::changeGameMaxPortraitSize()
     int size = -1;
 
     size = QInputDialog::getInt(this, tr("New size"),
-                                         tr("Enter new portrait size:"), QLineEdit::Normal, 0, 100, 1, &ok);
+                                         tr("Enter new portrait size (between 5-100):"), QLineEdit::Normal, 5, 100, 1, &ok);
 
 
     if (ok && size != -1){
@@ -986,6 +1021,53 @@ void MainWindow::onGameChangeClick()
 
 
 
+}
+
+void MainWindow::onPurgePortraitsClick()
+{
+
+    // for some reason, this will not work in DEBUG mode in QT IDE, but will work in release
+    // has to do with the QDir::separator()
+
+
+    QString path = QCoreApplication::applicationDirPath() + QDir::separator() + "portraits_Play_Sessions";
+
+    path = QDir::toNativeSeparators(path);
+
+    QDesktopServices::openUrl( QUrl::fromLocalFile(path) );
+}
+
+void MainWindow::onFabulationInfo()
+{
+    QString info;
+
+    info = "<p>Note that you must delete/purge your already generated portraits in order for the new settings <strong>to take effect</strong>. You can navigate directly to the containing folder by clicking on <strong>Purge Portraits</strong> and manually delete the ones you wish to re-generate.</p>"
+           "<p>&nbsp;</p>                                                                                                                                                                                                                                                                 "
+           "<p>&nbsp;</p>                                                                                                                                                                                                                                                                 "
+           "<p><strong>Full Fabulation</strong>: Portraits are generated with no regard to their in-game textual description.</p>                                                                                                                                                         "
+           "<p><br /><strong>Partial Fabulation</strong>: Only hair and color (where possible) from their in-game textual description are used when generating portraits. The rest is randomly selected.</p>                                                                              "
+           "<p><br /><strong>No Fabulation</strong>: Portraits are generated strictly following their textual description to the fullest extent of the current possibilities of Dwarf Vision.</p>                                                                                         "
+           "<p><br /><strong>NOTE</strong>: <em>No Fabulation</em> will create more sibblings-like portraits because of the way Dwarf Fortress currently handles castes, but also because of the ealry stages of development of Dwarf Vision.</p>                                      ";
+
+
+
+
+
+
+
+    QMessageBox messageBox;
+    messageBox.information (0,"", info);
+    messageBox.setFixedSize(700,200);
+}
+
+void MainWindow::onFabulationSliderChange(int newState)
+{
+    fabulation = (FabulationState)newState;
+}
+
+void MainWindow::toggleSecondaryLayersVisibility()
+{
+   ui->categoriesManager->toggleSecondaryLayersVisibility();
 }
 
 Sheet* MainWindow::findSheetInList(QList<Sheet *> list, BodyPart bp)
@@ -1111,6 +1193,7 @@ void MainWindow::resizeEvent(QResizeEvent *)
     //bounds.setHeight(bounds.height()*0.7);       // same as above
     //ui->graphicsView->fitInView(bounds, Qt::KeepAspectRatio);
     //ui->graphicsView->centerOn(0, 0);
+
 
 
 }

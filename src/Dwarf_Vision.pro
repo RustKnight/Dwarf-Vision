@@ -28,6 +28,7 @@ SOURCES += \
     mystringlist.cpp \
     portrait.cpp \
     portraitmanager.cpp \
+    rawconvertor.cpp \
     sheet.cpp
 
 HEADERS += \
@@ -52,6 +53,7 @@ HEADERS += \
     mystringlist.h \
     portrait.h \
     portraitmanager.h \
+    rawconvertor.h \
     sheet.h
 
 FORMS += \

@@ -79,8 +79,10 @@ public:
     int  getFrameCount() const;
     void setFrame(QString frameName);
     void setFrame(int frameIndex);
+    void setFrameViaContains(QString frameIndex);   //used by Portrait when translating RawStrings to PNGs  //might not be needed
 
     QPixmap getCurrentPixmap() const;
+    void setPlaceholderFrame(QPixmap placeholder);
 
     void randomizeSelectedFrame();
 
@@ -111,6 +113,7 @@ public:
     ColorData getColorData() const;
 
     void absorbGuiData(Sheet* guiSheet);
+
 
 private:
 

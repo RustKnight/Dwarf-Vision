@@ -1,6 +1,6 @@
 #include "dfcreature.h"
 
-DfCreature::DfCreature() : debugPartsList {}
+DfCreature::DfCreature()
 {
 
 //    for (int i = 0; i < INVALID_ASSET; ++i){
@@ -64,39 +64,6 @@ DfCreature::DfCreature() : debugPartsList {}
 
 
 
-void DfCreature::simulateDwarf()
-{
-
-
-    // using same  index as for debugPartsList, write to debugPartsList[INDEX][0] the mergedList
-
-
-    // go through each index of debugPartsList
-    for (int i = 0; i < debugPartsList.size(); ++i){
-
-        if (debugPartsList[i].isEmpty())
-            continue;
-
-        // for each stringList, pick one element and place it in mergedList (also, no space)
-        for (QString adjective : debugPartsList[i]){
-
-            QStringList split = adjective.split(",");
-            QString pickedAdj = split[QRandomGenerator::global()->bounded(split.size())];
-            pickedAdj.replace(" ", "");
-
-            QStringList list;
-            list << pickedAdj;
-            selectedFilters[i] << list;
-            // each split needs to have NO white space -> must fuze
-
-        }
-
-
-    }
-
-    // build sheet list by going through each bodypart enum and request from db
-    // if empty, request sheet without any filters
-}
 
 QList<Sheet> DfCreature::getSheets(AssetDB *assetDb)
 {
@@ -135,6 +102,113 @@ void DfCreature::setWorldName(QString world)
 void DfCreature::setSelected(bool truth)
 {
     selected = truth;
+}
+
+void DfCreature::setBp(const QList<int> &bpList)
+{
+    bpValuesList = bpList;
+}
+
+void DfCreature::checkHairConsistency()
+{
+    if (hair.contains("clean-shaven"))
+        hair = "clean-shaven";
+
+    if (hair.contains("stubble"))
+        hair = "stubble";
+}
+
+void DfCreature::checkBeardConsistency()
+{
+    if (beard.contains("clean-shaven"))
+        hair = "clean-shaven";
+
+    if (beard.contains("stubble"))
+        hair = "stubble";
+}
+
+void DfCreature::checkMoustacheConsistency()
+{
+    if (moustache.contains("clean-shaven"))
+        hair = "clean-shaven";
+
+    if (moustache.contains("stubble"))
+        hair = "stubble";
+}
+
+void DfCreature::setHair(const QString &s)
+{
+    hair = s;
+}
+
+void DfCreature::setBeard(const QString &s)
+{
+    beard = s;
+}
+
+void DfCreature::setMoustache(const QString &s)
+{
+    moustache = s;
+}
+
+void DfCreature::setSideburns(const QString &s)
+{
+    sideburns = s;
+}
+
+void DfCreature::setHairColor(const QString &s)
+{
+    hairColor = s;
+}
+
+void DfCreature::setIrisColor(const QString &s)
+{
+    irisColor = s;
+}
+
+void DfCreature::setGender(bool gender)
+{
+    male = gender;
+}
+
+QString DfCreature::getHair() const
+{
+    return hair;
+}
+
+QString DfCreature::getBeard() const
+{
+    return beard;
+}
+
+QString DfCreature::getMoustache() const
+{
+    return moustache;
+}
+
+QString DfCreature::getSideburns() const
+{
+    return sideburns;
+}
+
+QString DfCreature::getHairColor() const
+{
+    return hairColor;
+}
+
+QString DfCreature::getIrisColor() const
+{
+    return irisColor;
+}
+
+bool DfCreature::isMale()
+{
+    return male;
+}
+
+QList<int> DfCreature::getBpList() const
+{
+    return bpValuesList;
 }
 
 int DfCreature::getID() const

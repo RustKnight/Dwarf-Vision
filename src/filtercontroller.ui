@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
+    <width>363</width>
     <height>445</height>
    </rect>
   </property>
@@ -87,7 +87,7 @@
         </size>
        </property>
        <property name="currentIndex">
-        <number>21</number>
+        <number>17</number>
        </property>
        <widget class="QWidget" name="base">
         <layout class="QHBoxLayout" name="horizontalLayout_24">
@@ -2070,6 +2070,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QCheckBox" name="checkBox_555">
+              <property name="text">
+               <string>Clean-shaven</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QCheckBox" name="checkBox_457">
               <property name="text">
                <string>Stubble</string>
@@ -2247,6 +2254,13 @@
              <widget class="QCheckBox" name="checkBox_470">
               <property name="text">
                <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_556">
+              <property name="text">
+               <string>Clean-shaven</string>
               </property>
              </widget>
             </item>
@@ -2790,6 +2804,13 @@
              <widget class="QCheckBox" name="checkBox_512">
               <property name="text">
                <string>All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_557">
+              <property name="text">
+               <string>Clean-shaven</string>
               </property>
              </widget>
             </item>

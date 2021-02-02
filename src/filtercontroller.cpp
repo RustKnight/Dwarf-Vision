@@ -78,24 +78,23 @@ void FilterController::syncFilterListWidget()
 
     auto stuff = ui->list_activeFilters->findItems(category, Qt::MatchFlag::MatchContains);
 
+
     // category exists, append filter to category
-    if (!stuff.isEmpty())
+    if (!stuff.isEmpty()){
+
+        QString filterLineStr = stuff[0]->text();
+
 
         // if checked, add filter
-        if (buttonBool){
+        if (buttonBool)
+            stuff[0]->setText(filterLineStr.append(", " + buttonText));
 
-            stuff[0]->setText(stuff[0]->text().append(", " + buttonText));
-        }
 
         // if unchecked
         else {
 
             // remove filter
-            auto stuff = ui->list_activeFilters->findItems(category, Qt::MatchFlag::MatchContains);
-
-            stuff[0]->setText(stuff[0]->text().remove(" " + buttonText + ","));
-            stuff[0]->setText(stuff[0]->text().remove(", " + buttonText));
-            stuff[0]->setText(stuff[0]->text().remove(" " + buttonText));
+            stuff[0]->setText(removeFilter(filterLineStr, buttonText));
 
             // if category has no filters left, remove category as well
             if (stuff[0]->text() == category){
@@ -103,6 +102,7 @@ void FilterController::syncFilterListWidget()
                 delete stuff[0];
             }
         }
+    }
 
     // no category present, add category and filter (no comma)
     else{
@@ -129,6 +129,68 @@ void FilterController::syncFilterListWidget()
         ui->label_filterStatus->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600; color:#FF0000;\">FILTERS IN USE</span></p></body></html>", nullptr));
 }
 
+
+QString FilterController::removeFilter(QString workString, QString removeThis)
+{
+
+    QString result;
+
+    if (removeThis == "Braided"){
+
+        // split task
+        QStringList splitList = workString.split(",");
+
+        // check each split if it does NOT contain double, and delete
+        QList<QString>::iterator i;
+
+        for (i = splitList.begin(); i != splitList.end(); ++i){
+
+            // skip Double Braided
+            if (i->contains("double", Qt::CaseInsensitive))
+                continue;
+
+
+            // split will be empty after removal
+            if (i->contains("braided", Qt::CaseInsensitive)){
+
+                i->remove(" "  + removeThis + ",");
+                i->remove(", " + removeThis);
+                i->remove(" "  + removeThis);
+
+                break;
+            }
+        }
+
+
+        for (QString& s : splitList){
+
+            if (s.contains(":\t"))
+                result.append(s);
+
+            else if (s != splitList.last())
+                result.append(s + ",");
+
+            else
+                result.append(s);
+        }
+
+
+        return result;
+    }
+
+
+    else {
+
+        result = workString.remove(" " + removeThis + ",");
+        result = workString.remove(", " + removeThis);
+        result = workString.remove(" " + removeThis);
+    }
+
+
+    return result;
+}
+
+
 void FilterController::emitClickedStackedPage()
 {
 
@@ -143,6 +205,7 @@ void FilterController::emitClickedAllBtn()
     emit filterButtonClickedAll(allBtn);
 
 }
+
 
 void FilterController::outputFiltersToText()
 {

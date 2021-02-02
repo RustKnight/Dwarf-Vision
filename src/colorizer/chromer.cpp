@@ -171,10 +171,32 @@ void Chromer::setColorLocked(bool truth)
 bool Chromer::tryChangeColor(QString colorName)
 {
     for (int i = 0; i < vColors.size(); ++i)
-        if (vColors[i].name == colorName){
+        if (vColors[i].name.contains(colorName, Qt::CaseInsensitive)){
             setColorIndex(i);
             return true;
         }
+
+
+
+    // try switching names (Sandy Tapue -> Taupe Sandy)
+    auto split = colorName.split(" ");
+
+    if (split.size() >= 2){
+
+        QString temp0 = split[0];
+        split[0] = split[1];
+        split[1] = temp0;
+
+        colorName = split.join(" ");
+    }
+
+    // second try
+    for (int i = 0; i < vColors.size(); ++i)
+        if (vColors[i].name.contains(colorName, Qt::CaseInsensitive)){
+            setColorIndex(i);
+            return true;
+        }
+
 
 
     return false;

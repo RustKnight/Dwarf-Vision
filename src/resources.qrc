@@ -404,5 +404,26 @@
         <file>color_data/clothes_colors_secondary.txt</file>
         <file>color_data/hair_colors.txt</file>
         <file>color_data/iris_colors.txt</file>
+        <file>resources/dwarf/dwarf_male_beard_clean-shaven.png</file>
+        <file>resources/dwarf/dwarf_male_hair_clean-shaven.png</file>
+        <file>resources/dwarf/dwarf_male_moustache_clean-shaven.png</file>
+        <file>resources/dwarf/dwarf_female_base_basic.png</file>
+        <file>resources/dwarf/dwarf_male_beardItems_short_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beardStich_short_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beard_short_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beardItems_medium_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beardStich_medium_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beard_medium_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beardStich_long_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beard_long_doublebraided_curly.png</file>
+        <file>resources/dwarf/dwarf_male_beard_long_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beardItems_long_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beardStich_long_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beardItems_medium_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beardStich_medium_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beard_medium_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beardItems_short_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beardStich_short_braided_straight.png</file>
+        <file>resources/dwarf/dwarf_male_beard_short_braided_straight.png</file>
     </qresource>
 </RCC>

@@ -6,7 +6,7 @@
 #include <QElapsedTimer>
 
 
-enum msgIndex { IS_SELECTED, ID, NAME, DESCRIPTION };
+enum msgIndex { IS_SELECTED, ID, NAME, GEND, AGE, DESCRIPTION, BODYPARTS_VALUES, HAIRSTYLE, COLORS, CURLINESS };
 
 
 class DfMessageReader
@@ -18,7 +18,7 @@ public:
 
     QList<DfCreature> getCreatures() const;
 
-    QList<QList<QStringList>> parseApperance(QString text);
+    QStringList parseApperance(QString text);
 
     bool sameAsLastMessage();
 

@@ -36,8 +36,7 @@ void PortraitManager::updateSheetList(QList<Sheet *> sheetList)
 
 
         // LEGACY CODE
-        // NOTE: mapping offsets for GuiSheet might no longer be needed
-        // Second NOTE: it is needed, otherwise we won't
+        // NOTE: mapping offsets for GuiSheet might no longer needed
 
         // keep current frameIndex of sheets + categories
         for (Sheet* sh : vGuiSheetList){
@@ -171,6 +170,17 @@ void PortraitManager::updateColorForCurrentPortrait()
 
         colorizer->overwriteColor(sheet);
     }
+}
+
+void PortraitManager::changePortraitColor(Portrait *portrait, QString hairColor, QString irisColor)
+{
+    // ask colorizer to change color of portrait
+
+
+
+    // hair: black, eyes: blue
+    colorizer->changeIrisColor(portrait->getSheets(), irisColor);
+    colorizer->changeHairColor(portrait->getSheets(), hairColor);
 }
 
 void PortraitManager::onCategoryChange()
@@ -402,6 +412,8 @@ void PortraitManager::drawPortrait(Portrait* portrait)
 
             item->setFlag(QGraphicsItem::ItemIsMovable);
 
+
+
             addItem(item);
 
 
@@ -583,7 +595,7 @@ void PortraitManager::onGenerateButtonClicked()
     drawPortrait    (portraitDB[portraitIndex]);
 
     if (!portraitDB.isEmpty()){
-    // inform widgetList of curretnly selected frame
+    // inform widgetList of currently selected frame
     for (Sheet* sheet : portraitDB[portraitIndex]->getSheets())
         if (sheet->isSelected())
              emit currentlySelectedFrameIndex(sheet->getFrameIndex());

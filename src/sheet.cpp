@@ -147,9 +147,28 @@ void Sheet::setFrame(int frameIndex)
 }
 
 
+void Sheet::setFrameViaContains(QString frameName)
+{
+    for (int i = 0 ; i < strList.size(); ++i){
+
+        if (strList[i].contains(frameName)){
+
+            setFrameInternal(i);
+            break;
+        }
+    }
+}
+
+
 QPixmap Sheet::getCurrentPixmap() const
 {
     return selectedFrame;
+}
+
+void Sheet::setPlaceholderFrame(QPixmap placeholder)
+{
+    addFrame(placeholder, "FEMALE_PLACEHOLDER");
+    setFrameInternal(0);
 }
 
 
@@ -364,7 +383,10 @@ void Sheet::absorbGuiData(Sheet *guiSheet)
     hidden   = guiSheet->hidden;
     selected = guiSheet->selected;
 
-
+    // 1. Generate portrait with filters in effect
+    // 2. Remove filters for said category
+    // 3. Change frame -> without updating childrenOffsetList, it will crash
+    childrenOffsetsList = guiSheet->childrenOffsetsList;
 }
 
 

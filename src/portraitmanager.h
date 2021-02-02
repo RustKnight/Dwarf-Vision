@@ -59,6 +59,7 @@ public slots:
     void previous();
     QPixmap getPixmapCurrentPortrait();
     void updateColorForCurrentPortrait();
+    void changePortraitColor(Portrait* portrait, QString hairColor, QString irisColor);
 
 
     void onCategoryChange();

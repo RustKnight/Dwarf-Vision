@@ -68,20 +68,20 @@ CategoriesManager::CategoriesManager(QWidget *parent) :
             if (category->getCategoryName() == "eyebrows"  )  category->mySetHidden(false);
             if (category->getCategoryName() == "hair"      )  category->mySetHidden(false);
 
-            if (category->getCategoryName() == "hairBack"  )  category->mySetHidden(true);
-            if (category->getCategoryName() == "noseBack"  )  category->mySetHidden(true);
-            if (category->getCategoryName() == "beardStich")  category->mySetHidden(true);
-            if (category->getCategoryName() == "beardItems")  category->mySetHidden(true);
-            if (category->getCategoryName() == "moustacheB")  category->mySetHidden(true);
-            if (category->getCategoryName() == "moustacheI")  category->mySetHidden(true);
-            if (category->getCategoryName() == "iris"      )  category->mySetHidden(true);
-            if (category->getCategoryName() == "pupil"     )  category->mySetHidden(true);
-            if (category->getCategoryName() == "eyebrowsB" )  category->mySetHidden(true);
-            if (category->getCategoryName() == "hairItems" )  category->mySetHidden(true);
-            if (category->getCategoryName() == "clothesBack") category->mySetHidden(true);
-            if (category->getCategoryName() == "clothesAcc")  category->mySetHidden(true);
-            if (category->getCategoryName() == "hairItems" )  category->mySetHidden(true);
-            if (category->getCategoryName() == "hairMid" )    category->mySetHidden(true);
+            if (category->getCategoryName() == "hairBack"  )  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "noseBack"  )  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "beardStich")  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "beardItems")  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "moustacheB")  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "moustacheI")  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "iris"      )  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "pupil"     )  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "eyebrowsB" )  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "hairItems" )  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "clothesBack") category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "clothesAcc")  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "hairItems" )  category->mySetHidden(hideSecondaryLayers);
+            if (category->getCategoryName() == "hairMid" )    category->mySetHidden(hideSecondaryLayers);
 
 
 
@@ -283,6 +283,34 @@ void CategoriesManager::categoryDown()
 void CategoriesManager::portraitNeedsUpdate()
 {
     emit sheetsChangedState(getSheetList());
+}
+
+void CategoriesManager::toggleSecondaryLayersVisibility()
+{
+    hideSecondaryLayers = !hideSecondaryLayers;
+
+    for (Category* category : getCategories()){
+
+        if (category->getCategoryName() == "hairBack"  )  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "noseBack"  )  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "beardStich")  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "beardItems")  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "moustacheB")  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "moustacheI")  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "iris"      )  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "pupil"     )  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "eyebrowsB" )  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "hairItems" )  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "clothesBack") category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "clothesAcc")  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "hairItems" )  category->mySetHidden(hideSecondaryLayers);
+        if (category->getCategoryName() == "hairMid" )    category->mySetHidden(hideSecondaryLayers);
+    }
+}
+
+bool CategoriesManager::secondaryLayersAreHidden()
+{
+    return hideSecondaryLayers;
 }
 
 

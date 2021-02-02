@@ -196,7 +196,7 @@ void Portrait::checkAndDoBeardStich()
 void Portrait::absorpGuiSettings(QList<Sheet *> sourceList)
 {
 
-    if (ignoreGuiAbsorption)
+    if (ignoreGuiAbsorption || isPlaceholder)
         return;
 
     // rearrange vSheets to match sourceList
@@ -233,15 +233,58 @@ void Portrait::setIgnoreGuiAbsorption(bool truth)
     ignoreGuiAbsorption = truth;
 }
 
-void Portrait::absorbDfCreature(const DfCreature &creature)
+void Portrait::absorbDfCreature(const DfCreature &creature, int mode)
 {
+    RawConvertor rawConv;
+
     id = creature.getID();
     name = creature.getName();
     world = creature.getWorldName();
     selected = creature.isSelected();
 
-    // appearance can also be absorbed here
-    // keep in mind that dfcreatures will only have 1 sheet and always 0 frame selected. This cannot be saved and reloaded as regular portraits.
+    rawConv.readRawsList(creature.getBpList());
+    QList<QString> rawStrList = rawConv.getRawsTranslated();
+
+    if (mode == 0)  // full fabulation, all random
+        return;
+
+
+    else if (mode == 1){ // partial, only hair and color (color handled in mainWindow)
+
+        vSheets[HAIR]->      setFrameViaContains(creature.getHair());
+        vSheets[BEARD]->     setFrameViaContains(creature.getBeard());
+        vSheets[MOUSTACHE]-> setFrameViaContains(creature.getMoustache());
+    }
+
+
+    else if (mode == 2){
+
+        // checks to see if creature had any strings for beard, hair, moustache
+        // if it does not, skip assignment and leave default values
+
+        // meant for cases where we have hair curliness or length, but no description of hair style.
+        // known issue: it will let the randomly chosen hair styles on creation, but length will be ignored.
+
+        // if hair style is missing, so will its associated length (general hair length is still present thou, but not taken in account)
+
+
+        if (!creature.getHair().isEmpty())
+            vSheets[HAIR]->      setFrameViaContains(creature.getHair());
+
+        if (!creature.getBeard().isEmpty())
+            vSheets[BEARD]->     setFrameViaContains(creature.getBeard());
+
+        if (!creature.getMoustache().isEmpty())
+            vSheets[MOUSTACHE]-> setFrameViaContains(creature.getMoustache());
+
+        vSheets[EYES]->     setFrameViaContains(rawStrList[EYES]);
+        vSheets[EYEBROWS]-> setFrameViaContains(rawStrList[EYEBROWS]);
+        vSheets[NOSE]->     setFrameViaContains(rawStrList[NOSE]);
+        vSheets[EARS]->     setFrameViaContains(rawStrList[EARS]);
+        vSheets[LIPS]->     setFrameViaContains(rawStrList[LIPS]);
+    }
+
+
 }
 
 int Portrait::getID() const
@@ -267,6 +310,20 @@ void Portrait::setSelected(bool truth)
 void Portrait::setID(int id)
 {
     this->id = id;
+}
+
+void Portrait::convertToFemalePlaceholder(QPixmap QSplash)
+{
+    // get rid of all sheets so far
+    for (Sheet* sh : vSheets)
+        delete sh;
+
+    vSheets.clear();
+
+    vSheets << new Sheet (FEMALE, BASE);
+    vSheets[0]->setPlaceholderFrame(QSplash);
+
+    isPlaceholder = true;
 }
 
 
